@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Authors>Jonathan Wood</Authors>
+    <Company>SoftCircuits</Company>
+    <PackageIcon>Logo_64x64.png</PackageIcon>
+    <PackageIconUrl />
+    <PackageTags>formatter javascript javascript-formatter</PackageTags>
+    <PackageLicenseFile>License.txt</PackageLicenseFile>
+    <PackageReleaseNotes>Initial version;</PackageReleaseNotes>
+    <Product>JavaScriptFormatter</Product>
+    <Description>.NET class library that formats JavaScript scripts. Use on minified JavaScript to make it easier to read. An earlier version of this code was used by the popular Telerik Fiddler utility. Provides several options to customize formatting.</Description>
+    <Copyright>Copyright © 2020 SoftCircuits</Copyright>
+    <PackageProjectUrl>https://github.com/SoftCircuits/JavaScriptFormatter</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/SoftCircuits/JavaScriptFormatter</RepositoryUrl>
+    <NeutralLanguage>en-US</NeutralLanguage>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\License.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\Logo_64x64.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
