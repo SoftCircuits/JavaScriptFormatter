@@ -8,7 +8,7 @@ Install-Package SoftCircuits.JavaScriptFormatter
 
 ## Introduction
 
-SoftCircuits.JavaScriptFormatter is a JavaScript formatter library for .NET. It may be particularly useful for converting minified JavaScript to a more readable format.
+SoftCircuits.JavaScriptFormatter is a JavaScript formatter library for .NET. It may be particularly useful for converting minified JavaScript to make it more readable.
 
 ## Usage
 
