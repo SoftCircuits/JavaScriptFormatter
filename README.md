@@ -12,7 +12,7 @@ SoftCircuits.JavaScriptFormatter is a JavaScript formatter library for .NET. It 
 
 ## Usage
 
-To use the library, declare an instance of the JavaScriptFormatter and call the `Format()` method.
+To use the library, declare an instance of the `JavaScriptFormatter` class and call the `Format()` method.
 
 ```cs
 JavaScriptFormatter formatter = new JavaScriptFormatter();
