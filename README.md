@@ -12,7 +12,7 @@ SoftCircuits.JavaScriptFormatter is a JavaScript formatter library for .NET. It 
 
 ## Usage
 
-To use the library, declare an instance of the `JavaScriptFormatter` class and call the `Format()` method.
+To format a JavaScript string, declare an instance of the `JavaScriptFormatter` class and call the `Format()` method.
 
 ```cs
 JavaScriptFormatter formatter = new JavaScriptFormatter();
@@ -23,9 +23,9 @@ To customize the behavior of this class, the constructor can optionally accept a
 
 | Member | Meaning |
 |---|---|
-| `string Tab` | Specifies the string uses for each indentation. Set to 4 spaces by default. |
-| `bool NewLineBetweenFunctions` | Gets or sets if an empty line is inserted between functions. Set to true by default. |
-| `bool OpenBraceOnNewLine` | Gets or sets if opening braces go on a new line. Set to false by default. |
-| `bool NewLineBeforeLineComment` | Gets or sets if line comments go on new line. Set to true by default. |
-| `bool NewLineBeforeInlineComment` | Gets or sets if inline comments go on a new line. Set to true by default. |
-| `bool NewLineAfterInlineComment` | Gets or sets if a new line should follow inline comments. Set to true by default |
+| `string Tab` | Specifies the string used for each indentation. Set to 4 spaces by default. |
+| `bool NewLineBetweenFunctions` | Specifies if an empty line is inserted between functions. Set to true by default. |
+| `bool OpenBraceOnNewLine` | Specifies if opening braces go on a new line. Set to false by default. |
+| `bool NewLineBeforeLineComment` | Specifies if line comments go on new line. Set to true by default. |
+| `bool NewLineBeforeInlineComment` | Specifies if inline comments go on a new line. Set to true by default. |
+| `bool NewLineAfterInlineComment` | Specifies if a new line should follow inline comments. Set to true by default |
