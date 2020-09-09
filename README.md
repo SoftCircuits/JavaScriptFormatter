@@ -1,3 +1,5 @@
+<a href="https://www.buymeacoffee.com/jonathanwood" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/black_img.png" alt="Buy Me A Coffee" style="height: 37px !important;width: 170px !important;" ></a>
+
 # JavaScriptFormatter
 
 [![NuGet version (SoftCircuits.JavaScriptFormatter)](https://img.shields.io/nuget/v/SoftCircuits.JavaScriptFormatter.svg?style=flat-square)](https://www.nuget.org/packages/SoftCircuits.JavaScriptFormatter/)
