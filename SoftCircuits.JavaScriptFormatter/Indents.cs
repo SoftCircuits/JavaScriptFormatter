@@ -1,8 +1,9 @@
-﻿// Copyright (c) 2020 Jonathan Wood (www.softcircuits.com)
+﻿// Copyright (c) 2020-2021 Jonathan Wood (www.softcircuits.com)
 // Licensed under the MIT license.
 //
 
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace SoftCircuits.JavaScriptFormatter
@@ -15,7 +16,7 @@ namespace SoftCircuits.JavaScriptFormatter
         // Characters used for indent tabs
         private readonly string Tab;
 
-        protected Stack<IndentFlags> IndentStack = new Stack<IndentFlags>();
+        protected Stack<IndentFlags> IndentStack;
 
         /// <summary>
         /// Current indent depth.
@@ -30,8 +31,19 @@ namespace SoftCircuits.JavaScriptFormatter
         public Indents(string tab)
         {
             Tab = tab;
+            Reset();
         }
 
+        /// <summary>
+        /// Resets the indent status.
+        /// </summary>
+#if NET5_0
+        [MemberNotNull(nameof(IndentStack))]
+#endif
+        public void Reset()
+        {
+            IndentStack = new Stack<IndentFlags>();
+        }
 
         /// <summary>
         /// Gets or sets the most recently added indent.

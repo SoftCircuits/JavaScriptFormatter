@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Jonathan Wood (www.softcircuits.com)
+﻿// Copyright (c) 2020-2021 Jonathan Wood (www.softcircuits.com)
 // Licensed under the MIT license.
 //
 
@@ -41,10 +41,13 @@ namespace SoftCircuits.JavaScriptFormatter
         /// </summary>
         /// <param name="formatOptions">Optional format options instance. Specify to
         /// override default options.</param>
-        public JavaScriptFormatter(FormatOptions formatOptions = null)
+        public JavaScriptFormatter(FormatOptions? formatOptions = null)
         {
             // Create default options if none specified
             FormatOptions = formatOptions ?? new FormatOptions();
+
+            Builder = new StringBuilder();
+            Indents = new Indents(FormatOptions.Tab);
         }
 
         /// <summary>
@@ -59,8 +62,8 @@ namespace SoftCircuits.JavaScriptFormatter
             bool isLineStart = true;    // Current token is first on line
             Token peek;
 
-            Builder = new StringBuilder(javascript.Length);
-            Indents = new Indents(FormatOptions.Tab);
+            Builder.Capacity = javascript.Length;
+            Indents.Reset();
             ParenCount = 0;
             BracketCount = 0;
             LineFlags = LineFlags.None;

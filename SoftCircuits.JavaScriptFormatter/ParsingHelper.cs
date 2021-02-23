@@ -1,11 +1,11 @@
-﻿// Copyright (c) 2020 Jonathan Wood (www.softcircuits.com)
+﻿// Copyright (c) 2020-2021 Jonathan Wood (www.softcircuits.com)
 // Licensed under the MIT license.
 //
 
 using System;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Text;
 
 namespace SoftCircuits.JavaScriptFormatter
 {
@@ -38,7 +38,7 @@ namespace SoftCircuits.JavaScriptFormatter
         /// Constructs a ParsingHelper instance.
         /// </summary>
         /// <param name="text">The text to be parsed.</param>
-        public ParsingHelper(string text)
+        public ParsingHelper(string? text)
         {
             Reset(text);
         }
@@ -47,7 +47,10 @@ namespace SoftCircuits.JavaScriptFormatter
         /// Sets the text to be parsed and resets the current position to the start of that text.
         /// </summary>
         /// <param name="text">The text to be parsed.</param>
-        public void Reset(string text)
+#if NET5_0
+        [MemberNotNull(nameof(Text))]
+#endif
+        public void Reset(string? text)
         {
             Text = text ?? string.Empty;
             Index = 0;

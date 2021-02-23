@@ -1,9 +1,10 @@
-﻿// Copyright (c) 2020 Jonathan Wood (www.softcircuits.com)
+﻿// Copyright (c) 2020-2021 Jonathan Wood (www.softcircuits.com)
 // Licensed under the MIT license.
 //
 
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 namespace SoftCircuits.JavaScriptFormatter
@@ -64,15 +65,15 @@ namespace SoftCircuits.JavaScriptFormatter
             ">>"
         };
 
-        public Token CurrentToken { get; private set; }
-        private Token PendingToken;
+        public Token? CurrentToken { get; private set; }
+        private Token? PendingToken;
         private readonly Token EmptyToken = new Token { Value = string.Empty };
 
         /// <summary>
         /// Constructs a new Tokenizer instance.
         /// </summary>
         /// <param name="script">The JavaScript script to be tokenized.</param>
-        public Tokenizer(string script)
+        public Tokenizer(string? script)
             : base(script)
         {
             CurrentToken = PendingToken = null;
@@ -104,6 +105,9 @@ namespace SoftCircuits.JavaScriptFormatter
         /// Parses the next token from the input string. Returns false
         /// when no more tokens are available.
         /// </summary>
+#if NET5_0
+        [MemberNotNullWhen(true, nameof(CurrentToken))]
+#endif
         public bool GetToken()
         {
             // Return pending token, if any
@@ -264,7 +268,7 @@ namespace SoftCircuits.JavaScriptFormatter
                 else
                 {
                     // Parse multi-character operator
-                    string op = MultiCharOperators.FirstOrDefault(s => MatchesCurrentPosition(s));
+                    string? op = MultiCharOperators.FirstOrDefault(s => MatchesCurrentPosition(s));
                     if (op != null)
                         Next(op.Length);
                     else
