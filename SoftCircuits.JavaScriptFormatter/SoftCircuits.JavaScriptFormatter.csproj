@@ -1,11 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net5.0;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net8.0;net7.0;net6.0;netstandard2.0</TargetFrameworks>
     <Nullable>annotations</Nullable>
-    <Nullable Condition="'$(TargetFramework)' == 'net5.0'">enable</Nullable>
+    <Nullable Condition="'$(TargetFramework)' != 'netstandard2.0'">enable</Nullable>
     <LangVersion>9.0</LangVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Authors>Jonathan Wood</Authors>
     <Company>SoftCircuits</Company>
@@ -13,18 +14,23 @@
     <PackageIconUrl />
     <PackageTags>formatter javascript javascript-formatter</PackageTags>
     <PackageLicenseFile>License.txt</PackageLicenseFile>
-    <PackageReleaseNotes>Now targets .NET Standard 2.0 or .NET 5.0, and supports nullable reference types.</PackageReleaseNotes>
+    <PackageReleaseNotes>Now includes missing XML documentation file; Added direct support for .NET 7 and 8; Removed direct support for now deprecated .NET 5; miscellaneous tweaks.</PackageReleaseNotes>
     <Product>JavaScriptFormatter</Product>
     <Description>.NET class library that formats JavaScript scripts. Use on minified JavaScript to make it easier to read. An earlier version of this code was used by the popular Telerik Fiddler utility. Provides several options to customize formatting. Now targets .NET Standard 2.0 or .NET 5.0, and supports nullable reference types.</Description>
-    <Copyright>Copyright © 2020-2021 SoftCircuits</Copyright>
+    <Copyright>Copyright © 2020-2024 SoftCircuits</Copyright>
     <PackageProjectUrl>https://github.com/SoftCircuits/JavaScriptFormatter</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/SoftCircuits/JavaScriptFormatter</RepositoryUrl>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>2.0.0</Version>
+    <Version>2.1.0</Version>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="..\License.txt">
       <Pack>True</Pack>
       <PackagePath></PackagePath>

@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020-2021 Jonathan Wood (www.softcircuits.com)
+﻿// Copyright (c) 2020-2024 Jonathan Wood (www.softcircuits.com)
 // Licensed under the MIT license.
 //
 
@@ -28,6 +28,10 @@ namespace SoftCircuits.JavaScriptFormatter
         /// </summary>
         public IndentFlags LastIndent { get; private set; } = IndentFlags.None;
 
+        /// <summary>
+        /// Constructs a new <see cref="Indents"/> instance.
+        /// </summary>
+        /// <param name="tab">String used to create indents.</param>
         public Indents(string tab)
         {
             Tab = tab;
@@ -37,7 +41,7 @@ namespace SoftCircuits.JavaScriptFormatter
         /// <summary>
         /// Resets the indent status.
         /// </summary>
-#if NET5_0
+#if !NETSTANDARD2_0
         [MemberNotNull(nameof(IndentStack))]
 #endif
         public void Reset()
@@ -101,7 +105,7 @@ namespace SoftCircuits.JavaScriptFormatter
         /// </summary>
         public override string ToString()
         {
-            StringBuilder builder = new StringBuilder(Tab.Length * IndentStack.Count);
+            StringBuilder builder = new(Tab.Length * IndentStack.Count);
             for (int i = 0; i < IndentStack.Count; i++)
                 builder.Append(Tab);
             return builder.ToString();

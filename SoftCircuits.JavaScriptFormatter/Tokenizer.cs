@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020-2021 Jonathan Wood (www.softcircuits.com)
+﻿// Copyright (c) 2020-2024 Jonathan Wood (www.softcircuits.com)
 // Licensed under the MIT license.
 //
 
@@ -14,14 +14,14 @@ namespace SoftCircuits.JavaScriptFormatter
     /// </summary>
     internal class Tokenizer : ParsingHelper
     {
-        protected static readonly HashSet<char> FirstSymbolChars = new HashSet<char>("$_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-        protected static readonly HashSet<char> SymbolChars = new HashSet<char>("$_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890");
-        protected static readonly HashSet<char> OctalChars = new HashSet<char>("01234567");
-        protected static readonly HashSet<char> HexadecimalChars = new HashSet<char>("0123456789abcdefABCDEF");
-        protected static readonly HashSet<char> DecimalChars = new HashSet<char>("0123456789.eE");
-        protected static readonly HashSet<char> OperatorChars = new HashSet<char>("+-*/%=!<>&|?:~{}()[].;,^");
+        protected static readonly HashSet<char> FirstSymbolChars = new("$_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+        protected static readonly HashSet<char> SymbolChars = new("$_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890");
+        protected static readonly HashSet<char> OctalChars = new("01234567");
+        protected static readonly HashSet<char> HexadecimalChars = new("0123456789abcdefABCDEF");
+        protected static readonly HashSet<char> DecimalChars = new("0123456789.eE");
+        protected static readonly HashSet<char> OperatorChars = new("+-*/%=!<>&|?:~{}()[].;,^");
 
-        private static readonly Dictionary<char, TokenType> NamedOperators = new Dictionary<char, TokenType>()
+        private static readonly Dictionary<char, TokenType> NamedOperators = new()
         {
             ['{'] = TokenType.OpenBrace,
             ['}'] = TokenType.CloseBrace,
@@ -67,7 +67,7 @@ namespace SoftCircuits.JavaScriptFormatter
 
         public Token? CurrentToken { get; private set; }
         private Token? PendingToken;
-        private readonly Token EmptyToken = new Token { Value = string.Empty };
+        private readonly Token EmptyToken = new() { Value = string.Empty };
 
         /// <summary>
         /// Constructs a new Tokenizer instance.
@@ -105,7 +105,7 @@ namespace SoftCircuits.JavaScriptFormatter
         /// Parses the next token from the input string. Returns false
         /// when no more tokens are available.
         /// </summary>
-#if NET5_0
+#if !NETSTANDARD2_0
         [MemberNotNullWhen(true, nameof(CurrentToken))]
 #endif
         public bool GetToken()
@@ -126,7 +126,7 @@ namespace SoftCircuits.JavaScriptFormatter
                 return false;
 
             // Create new token
-            Token token = new Token(CurrentToken);
+            Token token = new(CurrentToken);
 
             // Parse token
             int start = Index;

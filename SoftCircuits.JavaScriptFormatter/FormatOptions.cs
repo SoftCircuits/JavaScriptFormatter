@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020-2021 Jonathan Wood (www.softcircuits.com)
+﻿// Copyright (c) 2020-2024 Jonathan Wood (www.softcircuits.com)
 // Licensed under the MIT license.
 //
 
@@ -45,6 +45,9 @@ namespace SoftCircuits.JavaScriptFormatter
         /// </summary>
         public bool NewLineAfterInlineComment { get; set; }
 
+        /// <summary>
+        /// Creates a new <see cref="FormatOptions"/> instance.
+        /// </summary>
         public FormatOptions()
         {
             Tab = "    ";

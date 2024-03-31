@@ -1,27 +1,25 @@
-﻿// Copyright (c) 2020-2021 Jonathan Wood (www.softcircuits.com)
+﻿// Copyright (c) 2020-2024 Jonathan Wood (www.softcircuits.com)
 // Licensed under the MIT license.
 //
 
 using SoftCircuits.JavaScriptFormatter;
-using System;
-using System.Windows.Forms;
 
-namespace TestJavaScriptFormatter
+namespace JavaScriptFormatterApp
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
         private readonly FormatOptions FormatOptions;
 
-        public Form1()
+        public Main()
         {
             InitializeComponent();
 
-            FormatOptions = new FormatOptions();
+            FormatOptions = new();
         }
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Options form = new Options(FormatOptions);
+            Options form = new(FormatOptions);
             form.ShowDialog();
         }
 
@@ -34,7 +32,7 @@ namespace TestJavaScriptFormatter
         {
             try
             {
-                JavaScriptFormatter formatter = new JavaScriptFormatter(FormatOptions);
+                JavaScriptFormatter formatter = new(FormatOptions);
                 txtFormatted.Text = formatter.Format(txtUnformatted.Text);
             }
             catch (Exception ex)

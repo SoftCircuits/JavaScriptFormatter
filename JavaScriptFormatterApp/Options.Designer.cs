@@ -1,4 +1,5 @@
-﻿namespace TestJavaScriptFormatter
+﻿namespace JavaScriptFormatterApp
+
 {
     partial class Options
     {

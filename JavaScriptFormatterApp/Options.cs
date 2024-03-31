@@ -1,16 +1,14 @@
-﻿// Copyright (c) 2020-2021 Jonathan Wood (www.softcircuits.com)
+﻿// Copyright (c) 2020-2024 Jonathan Wood (www.softcircuits.com)
 // Licensed under the MIT license.
 //
 
 using SoftCircuits.JavaScriptFormatter;
-using System;
-using System.Windows.Forms;
 
-namespace TestJavaScriptFormatter
+namespace JavaScriptFormatterApp
 {
     public partial class Options : Form
     {
-        FormatOptions FormatOptions;
+        private readonly FormatOptions FormatOptions;
 
         public Options(FormatOptions formatOptions)
         {

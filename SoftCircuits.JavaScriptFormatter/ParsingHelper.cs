@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020-2021 Jonathan Wood (www.softcircuits.com)
+﻿// Copyright (c) 2020-2024 Jonathan Wood (www.softcircuits.com)
 // Licensed under the MIT license.
 //
 
@@ -47,7 +47,7 @@ namespace SoftCircuits.JavaScriptFormatter
         /// Sets the text to be parsed and resets the current position to the start of that text.
         /// </summary>
         /// <param name="text">The text to be parsed.</param>
-#if NET5_0
+#if !NETSTANDARD2_0
         [MemberNotNull(nameof(Text))]
 #endif
         public void Reset(string? text)
@@ -204,7 +204,11 @@ namespace SoftCircuits.JavaScriptFormatter
             Index = Text.IndexOfAny(chars, Index);
             if (Index == -1)
                 Index = Text.Length;
+#if NETSTANDARD2_0
             return Text.Substring(start, Index - start);
+#else
+            return Text[start..Index];
+#endif
         }
 
         /// <summary>
@@ -218,7 +222,11 @@ namespace SoftCircuits.JavaScriptFormatter
             int start = Index;
             while (!EndOfText && predicate(Peek()))
                 Next();
+#if NETSTANDARD2_0
             return Text.Substring(start, Index - start);
+#else
+            return Text[start..Index];
+#endif
         }
 
         /// <summary>
@@ -249,11 +257,18 @@ namespace SoftCircuits.JavaScriptFormatter
         /// <param name="end">0-based position of the character that follows the last
         /// character to be extracted.</param>
         /// <returns>Returns the extracted string.</returns>
-        public string Extract(int start, int end) => Text.Substring(start, end - start);
+        public string Extract(int start, int end) =>
+#if NETSTANDARD2_0
+            Text.Substring(start, end - start);
+#else
+            Text[start..end];
+#endif
 
         #region Operator overloads
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public static implicit operator int(ParsingHelper helper) => helper.Index;
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 
         /// <summary>
         /// Move the current position ahead one character.

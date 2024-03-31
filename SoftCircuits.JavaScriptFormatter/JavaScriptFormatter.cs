@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020-2021 Jonathan Wood (www.softcircuits.com)
+﻿// Copyright (c) 2020-2024 Jonathan Wood (www.softcircuits.com)
 // Licensed under the MIT license.
 //
 
@@ -14,8 +14,8 @@ namespace SoftCircuits.JavaScriptFormatter
     public class JavaScriptFormatter
     {
         private readonly FormatOptions FormatOptions;
-        private StringBuilder Builder;
-        private Indents Indents;
+        private readonly StringBuilder Builder;
+        private readonly Indents Indents;
         private int ParenCount;         // Line parentheses depth
         private int BracketCount;       // Line bracket depth
         private LineFlags LineFlags;    // Line flags
@@ -23,7 +23,7 @@ namespace SoftCircuits.JavaScriptFormatter
 
         // Keywords that cause indent
         // Note: 'case' and 'default' have special handling
-        private static readonly HashSet<string> BlockKeywords = new HashSet<string>
+        private static readonly HashSet<string> BlockKeywords = new()
         {
             "catch",
             "do",
@@ -57,7 +57,7 @@ namespace SoftCircuits.JavaScriptFormatter
         /// <returns>The formatted string.</returns>
         public string Format(string javascript)
         {
-            Tokenizer tokenizer = new Tokenizer(javascript);
+            Tokenizer tokenizer = new(javascript);
             bool endLine = false;       // Cause new line
             bool isLineStart = true;    // Current token is first on line
             Token peek;
