@@ -37,7 +37,8 @@ namespace SoftCircuits.JavaScriptFormatter
         };
 
         // IMPORTANT: Longer operators must come first to avoid partial match with shorter operator
-        protected static readonly string[] MultiCharOperators = {
+        protected static readonly string[] MultiCharOperators =
+        [
             ">>>=",
             "===",
             "!==",
@@ -63,7 +64,7 @@ namespace SoftCircuits.JavaScriptFormatter
             "&=",
             "<<",
             ">>"
-        };
+        ];
 
         public Token? CurrentToken { get; private set; }
         private Token? PendingToken;

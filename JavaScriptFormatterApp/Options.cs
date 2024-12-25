@@ -27,7 +27,7 @@ namespace JavaScriptFormatterApp
             chkNewLineAfterInlineComment.Checked = FormatOptions.NewLineAfterInlineComment;
         }
 
-        private void btnOk_Click(object sender, EventArgs e)
+        private void Ok_Click(object sender, EventArgs e)
         {
             FormatOptions.Tab = txtTab.Text.Replace("\\t", "\t");
             FormatOptions.NewLineBetweenFunctions = chkNewLineBetweenFunctions.Checked;
@@ -38,7 +38,7 @@ namespace JavaScriptFormatterApp
             Close();
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void Cancel_Click(object sender, EventArgs e)
         {
             Close();
         }

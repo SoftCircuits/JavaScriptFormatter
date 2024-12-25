@@ -14,7 +14,7 @@ namespace SoftCircuits.JavaScriptFormatter
     /// </summary>
     public class ParsingHelper
     {
-        private static readonly char[] NewLineChars = { '\r', '\n' };
+        private static readonly char[] NewLineChars = ['\r', '\n'];
 
         /// <summary>
         /// Represents a invalid character. This character is returned when a valid character

@@ -139,14 +139,14 @@
             formatToolStripMenuItem.ShortcutKeys = Keys.F5;
             formatToolStripMenuItem.Size = new Size(163, 26);
             formatToolStripMenuItem.Text = "&Format";
-            formatToolStripMenuItem.Click += formatJavaScriptToolStripMenuItem_Click;
+            formatToolStripMenuItem.Click += FormatJavaScript_Click;
             // 
             // optionsToolStripMenuItem
             // 
             optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             optionsToolStripMenuItem.Size = new Size(163, 26);
             optionsToolStripMenuItem.Text = "&Options";
-            optionsToolStripMenuItem.Click += optionsToolStripMenuItem_Click;
+            optionsToolStripMenuItem.Click += Options_Click;
             // 
             // toolStripMenuItem1
             // 
@@ -158,7 +158,7 @@
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             exitToolStripMenuItem.Size = new Size(163, 26);
             exitToolStripMenuItem.Text = "E&xit";
-            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
+            exitToolStripMenuItem.Click += Exit_Click;
             // 
             // Form1
             // 

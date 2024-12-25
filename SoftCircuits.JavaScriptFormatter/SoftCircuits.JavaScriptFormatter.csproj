@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net8.0;net7.0;net6.0;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net9.0;net8.0;net7.0;net6.0;netstandard2.0</TargetFrameworks>
     <Nullable>annotations</Nullable>
     <Nullable Condition="'$(TargetFramework)' != 'netstandard2.0'">enable</Nullable>
-    <LangVersion>9.0</LangVersion>
+    <LangVersion>latest</LangVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
@@ -14,7 +14,7 @@
     <PackageIconUrl />
     <PackageTags>formatter javascript javascript-formatter</PackageTags>
     <PackageLicenseFile>License.txt</PackageLicenseFile>
-    <PackageReleaseNotes>Now includes missing XML documentation file; Added direct support for .NET 7 and 8; Removed direct support for now deprecated .NET 5; miscellaneous tweaks.</PackageReleaseNotes>
+    <PackageReleaseNotes>Added direct support for .NET 9; Code clean up.</PackageReleaseNotes>
     <Product>JavaScriptFormatter</Product>
     <Description>.NET class library that formats JavaScript scripts. Use on minified JavaScript to make it easier to read. An earlier version of this code was used by the popular Telerik Fiddler utility. Provides several options to customize formatting. Now targets .NET Standard 2.0 or .NET 5.0, and supports nullable reference types.</Description>
     <Copyright>Copyright © 2020-2024 SoftCircuits</Copyright>
@@ -22,7 +22,7 @@
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/SoftCircuits/JavaScriptFormatter</RepositoryUrl>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>2.1.0</Version>
+    <Version>2.2.0</Version>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 

@@ -23,8 +23,8 @@ namespace SoftCircuits.JavaScriptFormatter
 
         // Keywords that cause indent
         // Note: 'case' and 'default' have special handling
-        private static readonly HashSet<string> BlockKeywords = new()
-        {
+        private static readonly HashSet<string> BlockKeywords =
+        [
             "catch",
             "do",
             "finally",
@@ -34,7 +34,7 @@ namespace SoftCircuits.JavaScriptFormatter
             "try",
             "while",
             "with"
-        };
+        ];
 
         /// <summary>
         /// Constructs a new JavaScriptFormatter instance.

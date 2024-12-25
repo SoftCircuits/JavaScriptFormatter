@@ -17,18 +17,18 @@ namespace JavaScriptFormatterApp
             FormatOptions = new();
         }
 
-        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Options_Click(object sender, EventArgs e)
         {
             Options form = new(FormatOptions);
             form.ShowDialog();
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Exit_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void formatJavaScriptToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FormatJavaScript_Click(object sender, EventArgs e)
         {
             try
             {
