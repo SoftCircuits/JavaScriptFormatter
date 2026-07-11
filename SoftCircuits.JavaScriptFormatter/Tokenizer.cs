@@ -1,7 +1,8 @@
-﻿// Copyright (c) 2020-2024 Jonathan Wood (www.softcircuits.com)
+﻿// Copyright (c) 2020-2026 Jonathan Wood (www.softcircuits.com)
 // Licensed under the MIT license.
 //
 
+using SoftCircuits.JavaScriptFormatter.Enum;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
@@ -14,12 +15,12 @@ namespace SoftCircuits.JavaScriptFormatter
     /// </summary>
     internal class Tokenizer : ParsingHelper
     {
-        protected static readonly HashSet<char> FirstSymbolChars = new("$_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-        protected static readonly HashSet<char> SymbolChars = new("$_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890");
-        protected static readonly HashSet<char> OctalChars = new("01234567");
-        protected static readonly HashSet<char> HexadecimalChars = new("0123456789abcdefABCDEF");
-        protected static readonly HashSet<char> DecimalChars = new("0123456789.eE");
-        protected static readonly HashSet<char> OperatorChars = new("+-*/%=!<>&|?:~{}()[].;,^");
+        protected static readonly HashSet<char> FirstSymbolChars = [.. "$_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+        protected static readonly HashSet<char> SymbolChars = [.. "$_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"];
+        protected static readonly HashSet<char> OctalChars = [.. "01234567"];
+        protected static readonly HashSet<char> HexadecimalChars = [.. "0123456789abcdefABCDEF"];
+        protected static readonly HashSet<char> DecimalChars = [.. "0123456789.eE"];
+        protected static readonly HashSet<char> OperatorChars = [.. "+-*/%=!<>&|?:~{}()[].;,^"];
 
         private static readonly Dictionary<char, TokenType> NamedOperators = new()
         {
